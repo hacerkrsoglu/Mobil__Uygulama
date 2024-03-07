@@ -1,7 +1,8 @@
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 
 function TimeWidget (){
-  const  currenTime= new Date(); 
+  const  currentTime = new Date(); 
+  const formattedDate = currentTime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
 
 
   return (
@@ -14,21 +15,33 @@ function TimeWidget (){
     style = {styles.container}>
       <View style = {styles.container}>
         <Text style={styles.text}>
-          {currenTime.getHours()}: {String(currenTime.getMinutes()).padStart(2,'0')}
+         {formattedDate}
         </Text>
       </View>
-  </ImageBackground>)
+  </ImageBackground>);
 }
 const styles = StyleSheet.create({
+
+  imageBackground : {
+    flex : 1,
+    resizeMode: 'cover', //veya 'stretch gibi farklı resizemodelerini kulanabiliriz.'
+  },
   container:{
     flex :1,
-    borderWidth :1,
+    borderWidth :0,
+    borderColor : 'black',
+    flexDirection: 'row',
+    //backGroundColor : 'white' arkaplan rengini ve opaklığı ayarlayabiliriz.
     justifyContent:'center',
     alignItems : 'center' 
 
   },
   text: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontFamily: 'arial',
     fontSize: 60, // Metin öğesinin font boyutunu 40 olarak ayarlayın
-    fontWeight:'bold'}
+    }
 });
 export default TimeWidget;
+// {currentTime.getHours()}: {String(currentTime.getMinutes()).padStart(2,'0')} bunu yazmıştık textin oraya

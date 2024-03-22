@@ -1,12 +1,13 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import TimeWidget from './src/basic/TimeWidget'
-import Three from './src/basic/Three'
+import Counter from './src/basic/Counter'
+import BookSeries from './src/components/bookSeries/BookSeries'
 
-export default function App() {
+const App = () => {
   return (
-    
-      <Three/>
-   
+   <BookSeries />
   )
 }
+
+export default App;
